@@ -178,7 +178,7 @@ export default function DataPart() {
     };
 
     return (
-        <div className='flex gap-4 flex-column'>
+        <div className='flex gap-4 flex-column p-4'>
             <Toast ref={toast} />
             <Calendar
                 minDate={activeDate}

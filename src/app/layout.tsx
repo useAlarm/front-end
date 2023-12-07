@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={GeistSans.className}>
+      <body className={`${GeistSans.className} p-4`}>
         <PrimeReactProvider>
           {children}
         </PrimeReactProvider>
