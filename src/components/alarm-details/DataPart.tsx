@@ -181,6 +181,7 @@ export default function DataPart() {
         <div className='flex gap-4 flex-column'>
             <Toast ref={toast} />
             <Calendar
+                minDate={activeDate}
                 value={date}
                 onChange={(e) => setDate(e.value)}
                 dateFormat="dd/mm/yy" />
