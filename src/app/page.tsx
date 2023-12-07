@@ -1,95 +1,51 @@
+import Link from 'next/link';
+import { Button } from 'primereact/button';
+import { Suspense } from 'react';
+import { Skeleton } from 'primereact/skeleton';
 import Image from 'next/image'
-import styles from './page.module.css'
 
-export default function Home() {
+export default async function Home() {
+  const roomId = "ROOM-1234"
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+    <main className='flex w-full h-full justify-content-center align-items-center absolute left-0 top-0 flex-column gap-2'>
+      
+      <Image src="/no-background-logo.png" alt="useAlarm() ~ Best Alarm Setter Website" width="300" height="300" />
+
+      <Suspense fallback={
+        <Skeleton width='6rem' height='1rem' borderRadius="16px" />
+      }>
+        <h1 className='text-2xl text-indigo-500 font-bold'>
+          <span className='p-1 border-round bg-indigo-500 text-white'>useAlarm()</span> , Remote Controllable Alarms
+        </h1>
+      </Suspense>
+
+      <Suspense fallback={
+        <Skeleton width='8rem' height='3rem' borderRadius="16px" />
+      }>
+        <p className='text-center font-medium text-base mb-4'>
+          You can create and control alarm rooms which device you want. <br />
+          For example create a alarm room and control it from your mobile phone.
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      </Suspense>
+
+      <Suspense fallback={
+        <div className='flex flex-column gap-2'>
+          <Skeleton width='4rem' height='0.5rem' borderRadius="16px" />
+          <Skeleton width='4rem' height='0.5rem' borderRadius="16px" />
         </div>
-      </div>
+      }>
+        <div className='flex align-items-center flex-column gap-2'>
+          <Link href={`/alarm/${roomId}`} className='w-full'>
+            <Button className='w-full' label='Create an alarm' />
+          </Link>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          <Link href={`/join`} className='w-full'>
+            <Button className="w-full" label='Join an Alarm' />
+          </Link>
+        </div>
+      </Suspense>
     </main>
   )
 }
