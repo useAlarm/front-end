@@ -4,7 +4,8 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import './globals.css';
 import { GeistSans } from 'geist/font/sans'
 import "primeflex/themes/primeone-light.css";
-import "../../node_modules/primeflex/primeflex.css"
+import "../../node_modules/primeflex/primeflex.css";
+
 export const metadata: Metadata = {
   title: 'useAlarm(), Remote Controllable Alarms',
   description: 'useAlarm(), Remote Controllable Alarms.',
